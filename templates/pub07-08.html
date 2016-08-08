@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width = 1050, user-scalable = no" />
+
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>Publicações CM Évora</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', filename='bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="{{ url_for('static', filename='jquery/css/ie10-viewport-bug-workaround.css') }}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+
+   <link href="{{ url_for('static', filename='css/starter-template.css') }}" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="{{ url_for('static', filename='jquery/js/ie-emulation-modes-warning.js') }}"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+ <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet"> 
+
+    <script src="{{ url_for('static', filename='jquery/js/jquery.min.js') }}"></script>
+
+    <script src="{{ url_for('static', filename='js/modernizr.2.5.3.min.js') }}"></script>
+
+<script type="text/javascript" src="{{ url_for('static', filename='js/turn/hash.js') }}"></script>
+
+
+    <link href="{{ url_for('static', filename='css/basic.css') }}" rel="stylesheet">
+
+
+  </head>
+
+  <body>
+  
+  <!-- NavBar -->
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        <a href="http://www.cm-evora.pt/pt/Paginas/home.aspx" class="navbar-left"><img src="{{url_for('static', filename='../static/imgs/logo.png')}}"></a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/">Início</a></li>
+            <li><a href="/viewer">Publicações</a></li>
+			<li><a href="/contactos">Contactos</a></li>
+          </ul>
+		<div class="col-sm-3 col-md-3 pull-right">
+            <form class="navbar-form" role="search" method="post" action="{{ url_for('searchterm') }}">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Pesquisar" name="search_term">
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                    </div>
+                </div>
+            </form>
+        </div>        
+    </div>
+        </div><!--/.nav-collapse -->
+    </nav>
+
+  
+    <!-- Placed at the end of the document so the pages load faster 
+    <script>window.jQuery || document.write("<script src='{{ url_for('static', filename='jquery/js/jquery.min.1.7.js') }}'></script>")</script>
+-->
+
+    <script src="{{ url_for('static', filename='bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="{{ url_for('static', filename='jquery/js/ie10-viewport-bug-workaround.js') }}"></script> 
+
+
+
+
+
+
+
+
+
+<div id="canvas">
+
+<div class="zoom-icon zoom-icon-in"></div>
+
+<div class="magazine-viewport">
+	<div class="container">
+		<div class="magazine">
+			<!-- Next button -->
+			<div ignore="1" class="next-button"></div>
+			<!-- Previous button -->
+			<div ignore="1" class="previous-button"></div>
+		</div>
+	</div>
+</div>
+
+<!-- Thumbnails -->
+<div class="thumbnails">
+	<div>
+		<ul>
+			<li class="i">
+				<img src="{{ url_for('static', filename='imgs/publications/pub07-08/1-thumb.jpg')}}" width="51" height="79" class="page-1">
+				<span>1</span>
+			</li>
+			<li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/2-thumb.jpg')}}" width="51" height="79" class="page-2">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/3-thumb.jpg')}}" width="51" height="79" class="page-3">
+				<span>2-3</span>
+			</li>
+			<li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/4-thumb.jpg')}}" width="51" height="79" class="page-4">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/5-thumb.jpg')}}" width="51" height="79" class="page-5">
+				<span>4-5</span>
+			</li>
+			<li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/6-thumb.jpg')}}" width="51" height="79" class="page-6">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/7-thumb.jpg')}}" width="51" height="79" class="page-7">
+				<span>6-7</span>
+			</li>
+			<li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/8-thumb.jpg')}}" width="51" height="79" class="page-8">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/9-thumb.jpg')}}" width="51" height="79" class="page-9">
+				<span>8-9</span>
+			</li>
+			<li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/10-thumb.jpg')}}" width="51" height="79" class="page-10">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/11-thumb.jpg')}}" width="51" height="79" class="page-11">
+				<span>10-11</span>
+			</li>
+			<li class="d">
+				<img src="{{ url_for('static', filename='imgs/publications/pub07-08/12-thumb.jpg')}}" width="51" height="79" class="page-12">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/13-thumb.jpg')}}" width="51" height="79" class="page-13">
+				<span>12-13</span>
+			</li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/14-thumb.jpg')}}" width="51" height="79" class="page-14">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/15-thumb.jpg')}}" width="51" height="79" class="page-15">
+                                <span>14-15</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/16-thumb.jpg')}}" width="51" height="79" class="page-16">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/17-thumb.jpg')}}" width="51" height="79" class="page-17">
+                                <span>16-17</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/18-thumb.jpg')}}" width="51" height="79" class="page-18">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/19-thumb.jpg')}}" width="51" height="79" class="page-19">
+                                <span>18-19</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/20-thumb.jpg')}}" width="51" height="79" class="page-20">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/21-thumb.jpg')}}" width="51" height="79" class="page-21">
+                                <span>20-21</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/22-thumb.jpg')}}" width="51" height="79" class="page-22">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/23-thumb.jpg')}}" width="51" height="79" class="page-23">
+                                <span>22-23</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/24-thumb.jpg')}}" width="51" height="79" class="page-24">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/25-thumb.jpg')}}" width="51" height="79" class="page-25">
+                                <span>24-25</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/26-thumb.jpg')}}" width="51" height="79" class="page-26">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/27-thumb.jpg')}}" width="51" height="79" class="page-27">
+                                <span>26-27</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/28-thumb.jpg')}}" width="51" height="79" class="page-28">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/29-thumb.jpg')}}" width="51" height="79" class="page-29">
+                                <span>28-29</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/30-thumb.jpg')}}" width="51" height="79" class="page-30">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/31-thumb.jpg')}}" width="51" height="79" class="page-31">
+                                <span>30-31</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/32-thumb.jpg')}}" width="51" height="79" class="page-32">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/33-thumb.jpg')}}" width="51" height="79" class="page-33">
+                                <span>32-33</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/34-thumb.jpg')}}" width="51" height="79" class="page-34">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/35-thumb.jpg')}}" width="51" height="79" class="page-35">
+                                <span>34-35</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/36-thumb.jpg')}}" width="51" height="79" class="page-36">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/37-thumb.jpg')}}" width="51" height="79" class="page-37">
+                                <span>36-37</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/38-thumb.jpg')}}" width="51" height="79" class="page-38">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/39-thumb.jpg')}}" width="51" height="79" class="page-39">
+                                <span>38-39</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/40-thumb.jpg')}}" width="51" height="79" class="page-40">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/41-thumb.jpg')}}" width="51" height="79" class="page-41">
+                                <span>40-41</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/42-thumb.jpg')}}" width="51" height="79" class="page-42">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/43-thumb.jpg')}}" width="51" height="79" class="page-43">
+                                <span>42-43</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/44-thumb.jpg')}}" width="51" height="79" class="page-44">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/45-thumb.jpg')}}" width="51" height="79" class="page-45">
+                                <span>44-45</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/46-thumb.jpg')}}" width="51" height="79" class="page-46">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/47-thumb.jpg')}}" width="51" height="79" class="page-47">
+                                <span>46-47</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/48-thumb.jpg')}}" width="51" height="79" class="page-48">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/49-thumb.jpg')}}" width="51" height="79" class="page-49">
+                                <span>48-49</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/50-thumb.jpg')}}" width="51" height="79" class="page-50">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/51-thumb.jpg')}}" width="51" height="79" class="page-51">
+                                <span>50-51</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/52-thumb.jpg')}}" width="51" height="79" class="page-52">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/53-thumb.jpg')}}" width="51" height="79" class="page-53">
+                                <span>52-53</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/54-thumb.jpg')}}" width="51" height="79" class="page-54">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/55-thumb.jpg')}}" width="51" height="79" class="page-55">
+                                <span>54-55</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/56-thumb.jpg')}}" width="51" height="79" class="page-56">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/57-thumb.jpg')}}" width="51" height="79" class="page-57">
+                                <span>56-57</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/58-thumb.jpg')}}" width="51" height="79" class="page-58">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/59-thumb.jpg')}}" width="51" height="79" class="page-59">
+                                <span>58-59</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/60-thumb.jpg')}}" width="51" height="79" class="page-60">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/61-thumb.jpg')}}" width="51" height="79" class="page-61">
+                                <span>60-61</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/62-thumb.jpg')}}" width="51" height="79" class="page-62">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/63-thumb.jpg')}}" width="51" height="79" class="page-63">
+                                <span>62-63</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/64-thumb.jpg')}}" width="51" height="79" class="page-64">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/65-thumb.jpg')}}" width="51" height="79" class="page-65">
+                                <span>64-65</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/66-thumb.jpg')}}" width="51" height="79" class="page-66">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/67-thumb.jpg')}}" width="51" height="79" class="page-67">
+                                <span>66-67</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/68-thumb.jpg')}}" width="51" height="79" class="page-68">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/69-thumb.jpg')}}" width="51" height="79" class="page-69">
+                                <span>68-69</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/70-thumb.jpg')}}" width="51" height="79" class="page-70">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/71-thumb.jpg')}}" width="51" height="79" class="page-71">
+                                <span>70-71</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/72-thumb.jpg')}}" width="51" height="79" class="page-72">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/73-thumb.jpg')}}" width="51" height="79" class="page-73">
+                                <span>72-73</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/74-thumb.jpg')}}" width="51" height="79" class="page-74">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/75-thumb.jpg')}}" width="51" height="79" class="page-75">
+                                <span>74-75</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/76-thumb.jpg')}}" width="51" height="79" class="page-76">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/77-thumb.jpg')}}" width="51" height="79" class="page-77">
+                                <span>76-77</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/78-thumb.jpg')}}" width="51" height="79" class="page-78">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/79-thumb.jpg')}}" width="51" height="79" class="page-79">
+                                <span>78-79</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/80-thumb.jpg')}}" width="51" height="79" class="page-80">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/81-thumb.jpg')}}" width="51" height="79" class="page-81">
+                                <span>80-81</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/82-thumb.jpg')}}" width="51" height="79" class="page-82">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/83-thumb.jpg')}}" width="51" height="79" class="page-83">
+                                <span>82-83</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/84-thumb.jpg')}}" width="51" height="79" class="page-84">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/85-thumb.jpg')}}" width="51" height="79" class="page-85">
+                                <span>84-85</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/86-thumb.jpg')}}" width="51" height="79" class="page-86">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/87-thumb.jpg')}}" width="51" height="79" class="page-87">
+                                <span>86-87</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/88-thumb.jpg')}}" width="51" height="79" class="page-88">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/89-thumb.jpg')}}" width="51" height="79" class="page-89">
+                                <span>88-89</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/90-thumb.jpg')}}" width="51" height="79" class="page-90">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/91-thumb.jpg')}}" width="51" height="79" class="page-91">
+                                <span>90-91</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/92-thumb.jpg')}}" width="51" height="79" class="page-92">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/93-thumb.jpg')}}" width="51" height="79" class="page-93">
+                                <span>92-93</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/94-thumb.jpg')}}" width="51" height="79" class="page-94">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/95-thumb.jpg')}}" width="51" height="79" class="page-95">
+                                <span>94-95</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/96-thumb.jpg')}}" width="51" height="79" class="page-96">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/97-thumb.jpg')}}" width="51" height="79" class="page-97">
+                                <span>96-97</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/98-thumb.jpg')}}" width="51" height="79" class="page-98">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/99-thumb.jpg')}}" width="51" height="79" class="page-99">
+                                <span>98-99</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/100-thumb.jpg')}}" width="51" height="79" class="page-100">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/101-thumb.jpg')}}" width="51" height="79" class="page-101">
+                                <span>100-101</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/102-thumb.jpg')}}" width="51" height="79" class="page-102">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/103-thumb.jpg')}}" width="51" height="79" class="page-103">
+                                <span>102-103</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/104-thumb.jpg')}}" width="51" height="79" class="page-104">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/105-thumb.jpg')}}" width="51" height="79" class="page-105">
+                                <span>104-105</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/106-thumb.jpg')}}" width="51" height="79" class="page-106">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/107-thumb.jpg')}}" width="51" height="79" class="page-107">
+                                <span>106-107</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/108-thumb.jpg')}}" width="51" height="79" class="page-108">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/109-thumb.jpg')}}" width="51" height="79" class="page-109">
+                                <span>108-109</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/110-thumb.jpg')}}" width="51" height="79" class="page-110">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/111-thumb.jpg')}}" width="51" height="79" class="page-111">
+                                <span>110-111</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/112-thumb.jpg')}}" width="51" height="79" class="page-112">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/113-thumb.jpg')}}" width="51" height="79" class="page-113">
+                                <span>112-113</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/114-thumb.jpg')}}" width="51" height="79" class="page-114">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/115-thumb.jpg')}}" width="51" height="79" class="page-115">
+                                <span>114-115</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/116-thumb.jpg')}}" width="51" height="79" class="page-116">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/117-thumb.jpg')}}" width="51" height="79" class="page-117">
+                                <span>116-117</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/118-thumb.jpg')}}" width="51" height="79" class="page-118">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/119-thumb.jpg')}}" width="51" height="79" class="page-119">
+                                <span>118-119</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/120-thumb.jpg')}}" width="51" height="79" class="page-120">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/121-thumb.jpg')}}" width="51" height="79" class="page-121">
+                                <span>120-121</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/122-thumb.jpg')}}" width="51" height="79" class="page-122">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/123-thumb.jpg')}}" width="51" height="79" class="page-123">
+                                <span>122-123</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/124-thumb.jpg')}}" width="51" height="79" class="page-124">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/125-thumb.jpg')}}" width="51" height="79" class="page-125">
+                                <span>124-125</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/126-thumb.jpg')}}" width="51" height="79" class="page-126">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/127-thumb.jpg')}}" width="51" height="79" class="page-127">
+                                <span>126-127</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/128-thumb.jpg')}}" width="51" height="79" class="page-128">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/129-thumb.jpg')}}" width="51" height="79" class="page-129">
+                                <span>128-129</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/130-thumb.jpg')}}" width="51" height="79" class="page-130">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/131-thumb.jpg')}}" width="51" height="79" class="page-131">
+                                <span>130-131</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/132-thumb.jpg')}}" width="51" height="79" class="page-132">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/133-thumb.jpg')}}" width="51" height="79" class="page-133">
+                                <span>132-133</span>
+                        </li>
+
+			<li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/134-thumb.jpg')}}" width="51" height="79" class="page-134">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/135-thumb.jpg')}}" width="51" height="79" class="page-135">
+				<span>134-135</span>
+			</li>
+			<li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/136-thumb.jpg')}}" width="51" height="79" class="page-136">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/137-thumb.jpg')}}" width="51" height="79" class="page-137">
+				<span>136-137</span>
+			</li>
+			<li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/138-thumb.jpg')}}" width="51" height="79" class="page-138">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/139-thumb.jpg')}}" width="51" height="79" class="page-139">
+				<span>138-139</span>
+			</li>
+			<li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/140-thumb.jpg')}}" width="51" height="79" class="page-140">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/141-thumb.jpg')}}" width="51" height="79" class="page-141">
+				<span>140-141</span>
+			</li>
+			<li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/142-thumb.jpg')}}" width="51" height="79" class="page-142">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/143-thumb.jpg')}}" width="51" height="79" class="page-143">
+				<span>142-143</span>
+			</li>
+			<li class="d">
+				<img src="{{ url_for('static', filename='imgs/publications/pub07-08/144-thumb.jpg')}}" width="51" height="79" class="page-144">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/145-thumb.jpg')}}" width="51" height="79" class="page-145">
+				<span>144-145</span>
+			</li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/146-thumb.jpg')}}" width="51" height="79" class="page-146">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/147-thumb.jpg')}}" width="51" height="79" class="page-147">
+                                <span>146-147</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/148-thumb.jpg')}}" width="51" height="79" class="page-148">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/149-thumb.jpg')}}" width="51" height="79" class="page-149">
+                                <span>148-149</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/150-thumb.jpg')}}" width="51" height="79" class="page-150">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/151-thumb.jpg')}}" width="51" height="79" class="page-151">
+                                <span>150-151</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/152-thumb.jpg')}}" width="51" height="79" class="page-152">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/153-thumb.jpg')}}" width="51" height="79" class="page-153">
+                                <span>152-153</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/154-thumb.jpg')}}" width="51" height="79" class="page-154">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/155-thumb.jpg')}}" width="51" height="79" class="page-155">
+                                <span>154-155</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/156-thumb.jpg')}}" width="51" height="79" class="page-156">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/157-thumb.jpg')}}" width="51" height="79" class="page-157">
+                                <span>156-157</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/158-thumb.jpg')}}" width="51" height="79" class="page-158">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/159-thumb.jpg')}}" width="51" height="79" class="page-159">
+                                <span>158-159</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/160-thumb.jpg')}}" width="51" height="79" class="page-160">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/161-thumb.jpg')}}" width="51" height="79" class="page-161">
+                                <span>160-161</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/162-thumb.jpg')}}" width="51" height="79" class="page-162">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/163-thumb.jpg')}}" width="51" height="79" class="page-163">
+                                <span>162-163</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/164-thumb.jpg')}}" width="51" height="79" class="page-164">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/165-thumb.jpg')}}" width="51" height="79" class="page-165">
+                                <span>164-165</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/166-thumb.jpg')}}" width="51" height="79" class="page-166">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/167-thumb.jpg')}}" width="51" height="79" class="page-167">
+                                <span>166-167</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/168-thumb.jpg')}}" width="51" height="79" class="page-168">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/169-thumb.jpg')}}" width="51" height="79" class="page-169">
+                                <span>168-169</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/170-thumb.jpg')}}" width="51" height="79" class="page-170">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/171-thumb.jpg')}}" width="51" height="79" class="page-171">
+                                <span>170-171</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/172-thumb.jpg')}}" width="51" height="79" class="page-172">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/173-thumb.jpg')}}" width="51" height="79" class="page-173">
+                                <span>172-173</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/174-thumb.jpg')}}" width="51" height="79" class="page-174">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/175-thumb.jpg')}}" width="51" height="79" class="page-175">
+                                <span>174-175</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/176-thumb.jpg')}}" width="51" height="79" class="page-176">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/177-thumb.jpg')}}" width="51" height="79" class="page-177">
+                                <span>176-177</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/178-thumb.jpg')}}" width="51" height="79" class="page-178">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/179-thumb.jpg')}}" width="51" height="79" class="page-179">
+                                <span>178-179</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/180-thumb.jpg')}}" width="51" height="79" class="page-180">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/181-thumb.jpg')}}" width="51" height="79" class="page-181">
+                                <span>180-181</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/182-thumb.jpg')}}" width="51" height="79" class="page-182">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/183-thumb.jpg')}}" width="51" height="79" class="page-183">
+                                <span>182-183</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/184-thumb.jpg')}}" width="51" height="79" class="page-184">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/185-thumb.jpg')}}" width="51" height="79" class="page-185">
+                                <span>184-185</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/186-thumb.jpg')}}" width="51" height="79" class="page-186">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/187-thumb.jpg')}}" width="51" height="79" class="page-187">
+                                <span>186-187</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/188-thumb.jpg')}}" width="51" height="79" class="page-188">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/189-thumb.jpg')}}" width="51" height="79" class="page-189">
+                                <span>188-189</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/190-thumb.jpg')}}" width="51" height="79" class="page-190">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/191-thumb.jpg')}}" width="51" height="79" class="page-191">
+                                <span>190-191</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/192-thumb.jpg')}}" width="51" height="79" class="page-192">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/193-thumb.jpg')}}" width="51" height="79" class="page-193">
+                                <span>192-193</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/194-thumb.jpg')}}" width="51" height="79" class="page-194">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/195-thumb.jpg')}}" width="51" height="79" class="page-195">
+                                <span>194-195</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/196-thumb.jpg')}}" width="51" height="79" class="page-196">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/197-thumb.jpg')}}" width="51" height="79" class="page-197">
+                                <span>196-197</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/198-thumb.jpg')}}" width="51" height="79" class="page-198">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/199-thumb.jpg')}}" width="51" height="79" class="page-199">
+                                <span>198-199</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/200-thumb.jpg')}}" width="51" height="79" class="page-200">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/201-thumb.jpg')}}" width="51" height="79" class="page-201">
+                                <span>200-201</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/202-thumb.jpg')}}" width="51" height="79" class="page-202">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/203-thumb.jpg')}}" width="51" height="79" class="page-203">
+                                <span>202-203</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/204-thumb.jpg')}}" width="51" height="79" class="page-204">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/205-thumb.jpg')}}" width="51" height="79" class="page-205">
+                                <span>204-205</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/206-thumb.jpg')}}" width="51" height="79" class="page-206">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/207-thumb.jpg')}}" width="51" height="79" class="page-207">
+                                <span>206-207</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/208-thumb.jpg')}}" width="51" height="79" class="page-208">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/209-thumb.jpg')}}" width="51" height="79" class="page-209">
+                                <span>208-209</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/210-thumb.jpg')}}" width="51" height="79" class="page-210">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/211-thumb.jpg')}}" width="51" height="79" class="page-211">
+                                <span>210-211</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/212-thumb.jpg')}}" width="51" height="79" class="page-212">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/213-thumb.jpg')}}" width="51" height="79" class="page-213">
+                                <span>212-213</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/214-thumb.jpg')}}" width="51" height="79" class="page-214">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/215-thumb.jpg')}}" width="51" height="79" class="page-215">
+                                <span>214-215</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/216-thumb.jpg')}}" width="51" height="79" class="page-216">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/217-thumb.jpg')}}" width="51" height="79" class="page-217">
+                                <span>216-217</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/218-thumb.jpg')}}" width="51" height="79" class="page-218">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/219-thumb.jpg')}}" width="51" height="79" class="page-219">
+                                <span>218-219</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/220-thumb.jpg')}}" width="51" height="79" class="page-220">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/221-thumb.jpg')}}" width="51" height="79" class="page-221">
+                                <span>220-221</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/222-thumb.jpg')}}" width="51" height="79" class="page-222">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/223-thumb.jpg')}}" width="51" height="79" class="page-223">
+                                <span>222-223</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/224-thumb.jpg')}}" width="51" height="79" class="page-224">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/225-thumb.jpg')}}" width="51" height="79" class="page-225">
+                                <span>224-225</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/226-thumb.jpg')}}" width="51" height="79" class="page-226">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/227-thumb.jpg')}}" width="51" height="79" class="page-227">
+                                <span>226-227</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/228-thumb.jpg')}}" width="51" height="79" class="page-228">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/229-thumb.jpg')}}" width="51" height="79" class="page-229">
+                                <span>228-229</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/230-thumb.jpg')}}" width="51" height="79" class="page-230">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/231-thumb.jpg')}}" width="51" height="79" class="page-231">
+                                <span>230-231</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/232-thumb.jpg')}}" width="51" height="79" class="page-232">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/233-thumb.jpg')}}" width="51" height="79" class="page-233">
+                                <span>232-233</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/234-thumb.jpg')}}" width="51" height="79" class="page-234">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/235-thumb.jpg')}}" width="51" height="79" class="page-235">
+                                <span>234-235</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/236-thumb.jpg')}}" width="51" height="79" class="page-236">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/237-thumb.jpg')}}" width="51" height="79" class="page-237">
+                                <span>236-237</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/238-thumb.jpg')}}" width="51" height="79" class="page-238">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/239-thumb.jpg')}}" width="51" height="79" class="page-239">
+                                <span>238-239</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/240-thumb.jpg')}}" width="51" height="79" class="page-240">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/241-thumb.jpg')}}" width="51" height="79" class="page-241">
+                                <span>240-241</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/242-thumb.jpg')}}" width="51" height="79" class="page-242">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/243-thumb.jpg')}}" width="51" height="79" class="page-243">
+                                <span>242-243</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/244-thumb.jpg')}}" width="51" height="79" class="page-244">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/245-thumb.jpg')}}" width="51" height="79" class="page-245">
+                                <span>244-245</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/246-thumb.jpg')}}" width="51" height="79" class="page-246">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/247-thumb.jpg')}}" width="51" height="79" class="page-247">
+                                <span>246-247</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/248-thumb.jpg')}}" width="51" height="79" class="page-248">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/249-thumb.jpg')}}" width="51" height="79" class="page-249">
+                                <span>248-249</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/250-thumb.jpg')}}" width="51" height="79" class="page-250">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/251-thumb.jpg')}}" width="51" height="79" class="page-251">
+                                <span>250-251</span>
+                        </li>
+                        <li class="d">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/252-thumb.jpg')}}" width="51" height="79" class="page-252">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/253-thumb.jpg')}}" width="51" height="79" class="page-253">
+                                <span>252-253</span>
+                        </li>
+                        <li class="i">
+                                <img src="{{ url_for('static', filename='imgs/publications/pub07-08/254-thumb.jpg')}}" width="51" height="79" class="page=254">
+                                <span>254</span>
+                        </li>
+
+
+
+		<ul>
+	<div>	
+</div>
+</div>
+
+<script type="text/javascript">
+
+function loadApp() {
+
+ 	$('#canvas').fadeIn(1000);
+
+ 	var flipbook = $('.magazine');
+
+ 	// Check if the CSS was already loaded
+	
+	if (flipbook.width()==0 || flipbook.height()==0) {
+		setTimeout(loadApp, 10);
+		return;
+	}
+	
+	// Create the flipbook
+
+	flipbook.turn({
+			
+			// Magazine width
+
+			width: 922,
+
+			// Magazine height
+
+			height: 600,
+
+			// Duration in millisecond
+
+			duration: 1000,
+
+			// Hardware acceleration
+
+			acceleration: !isChrome(),
+
+			// Enables gradients
+
+			gradients: true,
+			
+			// Auto center this flipbook
+
+			autoCenter: true,
+
+			// Elevation from the edge of the flipbook when turning a page
+
+			elevation: 50,
+
+			// The number of pages
+
+			pages: 254,
+
+			// Events
+
+			when: {
+				turning: function(event, page, view) {
+					
+					var book = $(this),
+					currentPage = book.turn('page'),
+					pages = book.turn('pages');
+			
+					// Update the current URI
+
+					Hash.go('page/' + page).update();
+
+					// Show and hide navigation buttons
+
+					disableControls(page);
+					
+
+					$('.thumbnails .page-'+currentPage).
+						parent().
+						removeClass('current');
+
+					$('.thumbnails .page-'+page).
+						parent().
+						addClass('current');
+
+
+
+				},
+
+				turned: function(event, page, view) {
+
+					disableControls(page);
+
+					$(this).turn('center');
+
+					if (page==1) { 
+						$(this).turn('peel', 'br');
+					}
+
+				},
+
+				missing: function (event, pages) {
+
+					// Add pages that aren't in the magazine
+
+					for (var i = 0; i < pages.length; i++)
+						addPage(pages[i], $(this));
+
+				}
+			}
+
+	});
+
+	// Zoom.js
+
+	$('.magazine-viewport').zoom({
+		flipbook: $('.magazine'),
+
+		max: function() { 
+			
+			return largeMagazineWidth()/$('.magazine').width();
+
+		}, 
+
+		when: {
+
+			swipeLeft: function() {
+
+				$(this).zoom('flipbook').turn('next');
+
+			},
+
+			swipeRight: function() {
+				
+				$(this).zoom('flipbook').turn('previous');
+
+			},
+
+			resize: function(event, scale, page, pageElement) {
+
+				if (scale==1)
+					loadSmallPage(page, pageElement);
+				else
+					loadLargePage(page, pageElement);
+
+			},
+
+			zoomIn: function () {
+
+				$('.thumbnails').hide();
+				$('.made').hide();
+				$('.magazine').removeClass('animated').addClass('zoom-in');
+				$('.zoom-icon').removeClass('zoom-icon-in').addClass('zoom-icon-out');
+				
+				if (!window.escTip && !$.isTouch) {
+					escTip = true;
+
+					$('<div />', {'class': 'exit-message'}).
+						html('<div>Pressione ESC para sair</div>').
+							appendTo($('body')).
+							delay(2000).
+							animate({opacity:0}, 500, function() {
+								$(this).remove();
+							});
+				}
+			},
+
+			zoomOut: function () {
+
+				$('.exit-message').hide();
+				$('.thumbnails').fadeIn();
+				$('.made').fadeIn();
+				$('.zoom-icon').removeClass('zoom-icon-out').addClass('zoom-icon-in');
+
+				setTimeout(function(){
+					$('.magazine').addClass('animated').removeClass('zoom-in');
+					resizeViewport();
+				}, 0);
+
+			}
+		}
+	});
+
+	// Zoom event
+
+	if ($.isTouch)
+		$('.magazine-viewport').bind('zoom.doubleTap', zoomTo);
+	else
+		$('.magazine-viewport').bind('zoom.tap', zoomTo);
+
+
+	// Using arrow keys to turn the page
+
+	$(document).keydown(function(e){
+
+		var previous = 37, next = 39, esc = 27;
+
+		switch (e.keyCode) {
+			case previous:
+
+				// left arrow
+				$('.magazine').turn('previous');
+				e.preventDefault();
+
+			break;
+			case next:
+
+				//right arrow
+				$('.magazine').turn('next');
+				e.preventDefault();
+
+			break;
+			case esc:
+				
+				$('.magazine-viewport').zoom('zoomOut');	
+				e.preventDefault();
+
+			break;
+		}
+	});
+
+	// URIs - Format #/page/1 
+
+	Hash.on('^page\/([0-9]*)$', {
+		yep: function(path, parts) {
+			var page = parts[1];
+
+			if (page!==undefined) {
+				if ($('.magazine').turn('is'))
+					$('.magazine').turn('page', page);
+			}
+
+		},
+		nop: function(path) {
+
+			if ($('.magazine').turn('is'))
+				$('.magazine').turn('page', 1);
+		}
+	});
+
+
+	$(window).resize(function() {
+		resizeViewport();
+	}).bind('orientationchange', function() {
+		resizeViewport();
+	});
+
+	// Events for thumbnails
+
+	$('.thumbnails').click(function(event) {
+		
+		var page;
+
+		if (event.target && (page=/page-([0-9]+)/.exec($(event.target).attr('class'))) ) {
+		
+			$('.magazine').turn('page', page[1]);
+		}
+	});
+
+	$('.thumbnails li').
+		bind($.mouseEvents.over, function() {
+			
+			$(this).addClass('thumb-hover');
+
+		}).bind($.mouseEvents.out, function() {
+			
+			$(this).removeClass('thumb-hover');
+
+		});
+
+	if ($.isTouch) {
+	
+		$('.thumbnails').
+			addClass('thumbanils-touch').
+			bind($.mouseEvents.move, function(event) {
+				event.preventDefault();
+			});
+
+	} else {
+
+		$('.thumbnails ul').mouseover(function() {
+
+			$('.thumbnails').addClass('thumbnails-hover');
+
+		}).mousedown(function() {
+
+			return false;
+
+		}).mouseout(function() {
+
+			$('.thumbnails').removeClass('thumbnails-hover');
+
+		});
+
+	}
+
+
+	// Regions
+
+//	if ($.isTouch) {
+//		$('.magazine').bind('touchstart', regionClick);
+//	} else {
+//		$('.magazine').click(regionClick);
+//	}
+
+	// Events for the next button
+
+	$('.next-button').bind($.mouseEvents.over, function() {
+		
+		$(this).addClass('next-button-hover');
+
+	}).bind($.mouseEvents.out, function() {
+		
+		$(this).removeClass('next-button-hover');
+
+	}).bind($.mouseEvents.down, function() {
+		
+		$(this).addClass('next-button-down');
+
+	}).bind($.mouseEvents.up, function() {
+		
+		$(this).removeClass('next-button-down');
+
+	}).click(function() {
+		
+		$('.magazine').turn('next');
+
+	});
+
+	// Events for the next button
+	
+	$('.previous-button').bind($.mouseEvents.over, function() {
+		
+		$(this).addClass('previous-button-hover');
+
+	}).bind($.mouseEvents.out, function() {
+		
+		$(this).removeClass('previous-button-hover');
+
+	}).bind($.mouseEvents.down, function() {
+		
+		$(this).addClass('previous-button-down');
+
+	}).bind($.mouseEvents.up, function() {
+		
+		$(this).removeClass('previous-button-down');
+
+	}).click(function() {
+		
+		$('.magazine').turn('previous');
+
+	});
+
+
+	resizeViewport();
+
+	$('.magazine').addClass('animated');
+
+}
+
+// Zoom icon
+
+ $('.zoom-icon').bind('mouseover', function() { 
+ 	
+ 	if ($(this).hasClass('zoom-icon-in'))
+ 		$(this).addClass('zoom-icon-in-hover');
+
+ 	if ($(this).hasClass('zoom-icon-out'))
+ 		$(this).addClass('zoom-icon-out-hover');
+ 
+ }).bind('mouseout', function() { 
+ 	
+ 	 if ($(this).hasClass('zoom-icon-in'))
+ 		$(this).removeClass('zoom-icon-in-hover');
+ 	
+ 	if ($(this).hasClass('zoom-icon-out'))
+ 		$(this).removeClass('zoom-icon-out-hover');
+
+ }).bind('click', function() {
+
+ 	if ($(this).hasClass('zoom-icon-in'))
+ 		$('.magazine-viewport').zoom('zoomIn');
+ 	else if ($(this).hasClass('zoom-icon-out'))	
+		$('.magazine-viewport').zoom('zoomOut');
+
+ });
+
+ $('#canvas').hide();
+
+
+// Load the HTML4 version if there's not CSS transform
+
+yepnope({
+	test : Modernizr.csstransforms,
+	yep: ['../static/js/turn/turn.js'],
+	nope: ['../static/js/turn/turn.html4.min.js'],
+	both: ['../static/js/turn/zoom.min.js', '../static/js/magazine07-08.js', '../static/css/magazine.css'],
+	complete: loadApp
+});
+
+</script>
+
+
+
+ </body>
+</html>

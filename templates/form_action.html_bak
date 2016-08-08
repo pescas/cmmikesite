@@ -1,0 +1,76 @@
+ <html>
+    <head>
+        <title>Resultados da pesquisa</title>
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', filename='bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+
+   <link href="{{ url_for('static', filename='css/starter-template.css') }}" rel="stylesheet">
+ <!--       <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+-->
+    </head>
+    <body>
+            <div class="container">
+  <!-- NavBar -->
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        <a href="http://www.cm-evora.pt/pt/Paginas/home.aspx" class="navbar-left"><img src="{{url_for('static', filename='../static/imgs/logo.png')}}"></a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/">Início</a></li>
+            <li><a href="/viewer">Publicações</a></li>
+                        <li><a href="/contactos">Contactos</a></li>
+          </ul>
+                <div class="col-sm-3 col-md-3 pull-right">
+            <form class="navbar-form" role="search" method="post" action="{{ url_for('searchterm') }}">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Pesquisar" name="search_term">
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+        </div><!--/.nav-collapse -->
+    </nav>
+
+
+    <hgroup class="mb20">
+<p><p>
+		<h1>Resultados da pesquisa</h1>
+		<h2 class="lead"><strong class="text-danger">{{search_terms|length}}</strong> resultados foram obtidos através da pesquisa por <strong class="text-danger">{{orig_search}}</strong></h2>								
+	</hgroup>
+
+   <section class="col-xs-12 col-sm-6 col-md-12">
+                {% for key, value in search_terms.iteritems() %}
+                   <button type="button" class="btn btn-danger" style="border-radius: 0px; background-color: transparent; font-family: Copperplate / Copperplate Gothic Light, sans-serif;"><a href={{key}} style="color:black">PUBLICAÇÃO {{value[2]}}</a></button>
+
+                <article class="search-result row">
+                        <div class="col-xs-4 col-sm-4 col-md-2">
+                            <div class="thumbnail">
+                                <a href={{key}} title={{value[0]}} class="thumbnail"><img src="{{url_for('static', filename=value[3])}}"  alt="" /></a>
+                        </div>
+                       </div>
+                        <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
+                                <h3><a href={{key}} title="">{{value[0]}}</a></h3>
+                                <p>{{value[1]}}</p>
+                <span class="plus"><a href={{key}} title={{value[0]}}><i class="glyphicon glyphicon-plus"></i></a></span>
+                        </div>
+                        <span class="clearfix borda"></span>
+                </article>
+
+
+
+                {% endfor %}
+            </div>
+    <script src="{{ url_for('static', filename='bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    </body>
+</html>
+

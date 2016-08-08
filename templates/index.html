@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>Publicações CM Évora</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', filename='bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="{{ url_for('static', filename='jquery/css/ie10-viewport-bug-workaround.css') }}" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static', filename='css/starter-template.css') }}" rel="stylesheet">
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="{{ url_for('static', filename='jquery/js/ie-emulation-modes-warning.js') }}"></script> 
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+ <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet"> 
+</head>
+
+  <body>
+  
+  <!-- NavBar -->
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+<a href="http://www.cm-evora.pt/pt/Paginas/home.aspx" class="navbar-left"><img src="{{url_for('static', filename='imgs/logo.png')}}"></a>
+
+
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#">Início</a></li>
+            <li><a href="viewer">Publicações</a></li>
+			<li><a href="contactos">Contactos</a></li>
+          </ul>
+		<div class="col-sm-3 col-md-3 pull-right">
+            <form class="navbar-form" role="search" method="post" action="{{ url_for('searchterm') }}">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Pesquisar" name="search_term">
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                    </div>
+                </div>
+            </form>
+        </div>        
+    </div>
+        </div><!--/.nav-collapse -->
+    </nav>
+  
+  
+   <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="3000">
+  <!-- Indicators -->
+  <ul class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+	<li data-target="#carousel-example-generic" data-slide-to="3"></li>
+	<li data-target="#carousel-example-generic" data-slide-to="4"></li>
+	<li data-target="#carousel-example-generic" data-slide-to="5"></li>
+	<li data-target="#carousel-example-generic" data-slide-to="6"></li>
+  </ul>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+      <img src="{{url_for('static', filename='imgs/carousel/carousel1.jpg')}}"  alt="...">
+      <div class="carousel-caption">
+      </div>
+    </div>
+    <div class="item">
+      <img src="{{url_for('static', filename='imgs/carousel/carousel2.jpg')}}"  alt="...">
+      <div class="carousel-caption">
+      </div>
+    </div>
+    <div class="item">
+      <img src="{{url_for('static', filename='imgs/carousel/carousel3.jpg')}}"  alt="...">
+      <div class="carousel-caption">
+      </div>
+    </div>
+	<div class="item">
+      <img src="{{url_for('static', filename='imgs/carousel/carousel4.jpg')}}"  alt="...">
+      <div class="carousel-caption">
+      </div>
+    </div>
+	<div class="item">
+      <img src="{{url_for('static', filename='imgs/carousel/carousel5.jpg')}}"  alt="...">
+      <div class="carousel-caption">
+      </div>
+    </div>
+	<div class="item">
+      <img src="{{url_for('static', filename='imgs/carousel/carousel6.jpg')}}"  alt="...">
+      <div class="carousel-caption">
+      </div>
+    </div>
+	<div class="item">
+      <img src="{{url_for('static', filename='imgs/carousel/carousel1.jpg')}}"  alt="...">
+      <div class="carousel-caption">
+      </div>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+</div> <!-- Carousel -->
+  
+
+
+
+  <div class="container">
+      <div class="starter-template">
+        <h2><p class="text-danger">A CIDADE DE &Eacute;VORA </strong> <br />Boletim de Cultura da C&acirc;mara Municipal de &Eacute;vora</p></h2>
+		<p>&nbsp;</p>	  
+      <p class="lead"><p>O primeiro n&uacute;mero &eacute; editado em <strong>Dezembro de 1942</strong>, ent&atilde;o com a designa&ccedil;&atilde;o <strong><em>A Cidade de &Eacute;vora &ndash; Boletim da Comiss&atilde;o Municipal de Turismo</em></strong><em>, </em>sendo o seu diretor Ant&oacute;nio Bartolomeu Gromicho e tendo como primeiro editor T&uacute;lio Espanca. A 1&ordf; s&eacute;rie foi publicada entre 1942 e 1993, tendo sa&iacute;do 76 n&uacute;meros agrupados em v&aacute;rios volumes. A partir do n&ordm; 61-62 (1978-79) o Boletim altera o seu subt&iacute;tulo passando a chamar-se <strong><em>A Cidade de &Eacute;vora &ndash; Boletim de Cultura da C&acirc;mara Municipal de &Eacute;vora</em></strong><em>, </em>designa&ccedil;&atilde;o que mantem at&eacute; aos dias de hoje.</p>
+<p>Ap&oacute;s o falecimento de T&uacute;lio Espanca cria-se a 2&ordf; s&eacute;rie do Boletim, tendo sido editados 8 n&uacute;meros entre 1994 e 2009.</p>
+<p>Em 2016, inicia-se a 3&ordf; s&eacute;rie, contando com uma nova estrutura aberta &agrave; comunidade atrav&eacute;s da cria&ccedil;&atilde;o de um Conselho Editorial e um Conselho Cient&iacute;fico que asseguram uma nova abordagem na planifica&ccedil;&atilde;o das linhas tem&aacute;ticas do Boletim e na an&aacute;lise do rigor do seu conte&uacute;do cient&iacute;fico.</p>
+<p>&nbsp;</p>
+<p>Os objetivos do Boletim A Cidade de &Eacute;vora est&atilde;o definidos na introdu&ccedil;&atilde;o do primeiro n&uacute;mero, intitulada <strong><em>P&oacute;rtico</em></strong>, os quais na sua ess&ecirc;ncia, permanecem atuais:</p>
+<p><br /> &ldquo;&hellip;<em>Quando v&aacute;rias outras C&acirc;maras Municipais t&ecirc;m procurado dar a conhecer todo o seu labor atrav&eacute;s de minuciosos e claros relat&oacute;rios e boletins, <strong>&agrave; C&acirc;mara Municipal de &Eacute;vora incumbe mais particularmente criar uma publica&ccedil;&atilde;o, que, n&atilde;o s&oacute; seja o reposit&oacute;rio de sua exist&ecirc;ncia como organismo de administra&ccedil;&atilde;o, mas tamb&eacute;m encerre doutrina e encare problemas relativos &agrave; sua qualidade de cidade &uacute;nica no Pa&iacute;s em riquezas arquitet&oacute;nicas, fonte inesgot&aacute;vel de uma bem orientada propaganda tur&iacute;stica</strong></em>.&rdquo;</p>
+<p>&nbsp;</p>
+<p>&ldquo;<strong>O Boletim &ldquo;A Cidade de &Eacute;vora</strong>&rdquo; em obedi&ecirc;ncia ao seu t&iacute;tulo e ao seu esp&iacute;rito, <strong><em>ser&aacute; um miradouro de livre acesso a todos que, com eleva&ccedil;&atilde;o e desinteresse, se proponham contribuir com as suas produ&ccedil;&otilde;es liter&aacute;rias para maior prest&iacute;gio e melhor e maior divulga&ccedil;&atilde;o dos tesouros que as muralhas fernandinas encerram e que n&oacute;s eborenses, devemos amar e defender com zeloso ardor.</em></strong>&rdquo;<br /> </p>
+<p>Eram ent&atilde;o criadas tr&ecirc;s sec&ccedil;&otilde;es:</p>
+<li><br /> <em>a) &ndash; Sec&ccedil;&atilde;o liter&aacute;ria com vista &agrave; valoriza&ccedil;&atilde;o da cidade monumental e &agrave; sua propaganda tur&iacute;stica.<br /> b) &ndash; Sec&ccedil;&atilde;o burocr&aacute;tica, na qual ser&atilde;o inclu&iacute;dos os relat&oacute;rios dos v&aacute;rios servi&ccedil;os municipais, estat&iacute;sticos, planos de obras, etc. <br /> c) &ndash; Sec&ccedil;&atilde;o de publica&ccedil;&atilde;o de obras e documentos in&eacute;ditos de interesse citadino.<br /> <br /> </em></li>
+<p>Atualmente, esta publica&ccedil;&atilde;o mant&eacute;m-se como um importante instrumento para o conhecimento, reflex&atilde;o, preserva&ccedil;&atilde;o e divulga&ccedil;&atilde;o da cultura da Cidade e da regi&atilde;o.</p>
+<p><strong>Os trabalhos inclu&iacute;dos no Boletim s&atilde;o, essencialmente, estudos de hist&oacute;ria, hist&oacute;ria de arte, investiga&ccedil;&atilde;o nas &aacute;reas da antropologia, sociologia e literatura, relevantes para o conhecimento de &Eacute;vora e da regi&atilde;o do Alentejo</strong>, muitos da autoria de not&aacute;veis investigadores.</p>
+<p>Para al&eacute;m dos contributos na investiga&ccedil;&atilde;o das vertentes hist&oacute;rica, liter&aacute;ria e patrimonial de car&aacute;cter local e regional, este Boletim conta tamb&eacute;m com a publica&ccedil;&atilde;o de estudos da autoria de investigadores estrangeiros permitindo uma leitura e contextualiza&ccedil;&atilde;o de tem&aacute;ticas regionais no espectro mais abrangente do plano internacional.</p>
+<p>O prest&iacute;gio nacional e internacional que o Boletim adquiriu, ao longo dos anos, deveu-se, em muito, ao m&eacute;rito do grande historiador de &Eacute;vora, <strong>T&uacute;lio Espanca</strong> (1913-1993), autor de obras de significativa import&acirc;ncia, editadas em Portugal no s&eacute;culo XX; o Invent&aacute;rio Art&iacute;stico de Concelho e do Distrito de &Eacute;vora (6 volumes) e do Distrito de Beja (parcial: 2 volumes), editados pela Academia Nacional de Belas-Artes.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+	 </div>
+
+    </div><!-- /.container -->
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="jquery/js/jquery.min.js"><\/script>')</script>
+
+    <script src="{{ url_for('static', filename='bootstrap/dist/js/bootstrap.min.js') }}"></script>
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{{ url_for('static', filename='jquery/js/ie10-viewport-bug-workaround.js') }}"></script>
+
+  </body>
+</html>
